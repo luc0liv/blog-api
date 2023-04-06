@@ -7,6 +7,10 @@ const CategoryModel = (sequelize, DataTypes) => {
       allowNull: false,
     },
     name: DataTypes.STRING,
+  },
+  {
+    timestamps: false,
+    underscored: true,
   });
 
   Category.associate = (models) => {
