@@ -22,7 +22,7 @@ const BlogPostModel = (sequelize, DataTypes) => {
       foreignKey: 'user_id',
       as: 'users'
     });
-    BlogPost.hasMany(models.PostsCategories, {
+    BlogPost.hasMany(models.PostCategory, {
       foreignKey: 'post_id',
       as: 'posts_categories',
     });
