@@ -1,6 +1,6 @@
 const { User } = require('../models');
 
-const getAllUsers = () => User.findAll();
+const getAllUsers = () => User.scope('withoutPassword').findAll();
 
 const getByEmail = (email) => User.findOne({ where: { email } });
 

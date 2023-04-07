@@ -55,7 +55,19 @@ const createUser = async (req, res) => {
 }
 };
 
+const getUsers = async (req, res) => {
+  try {
+    const users = await UserService.getAllUsers();
+    return res.status(200).json(users);
+  } catch (error) {
+    return res
+    .status(500)
+    .json({ message: error.message });
+  }
+};
+
 module.exports = {
   login,
   createUser,
+  getUsers,
 };

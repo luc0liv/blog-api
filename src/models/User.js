@@ -23,6 +23,12 @@ const UserModel = (sequelize, DataTypes) => {
     })
   }
 
+  User.addScope('withoutPassword', {
+    attributes: {
+      exclude: ['password']
+    }
+  })
+
   return User;
 };
 
