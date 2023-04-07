@@ -14,7 +14,7 @@ const CategoryModel = (sequelize, DataTypes) => {
   });
 
   Category.associate = (models) => {
-    Category.hasMany(models.PostsCategories, {
+    Category.hasMany(models.PostCategory, {
       foreignKey: 'category_id',
       as: 'posts_categories',
     });
