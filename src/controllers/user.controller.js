@@ -39,10 +39,23 @@ const login = async (req, res) => {
   } catch (error) {
     return res
       .status(500)
-      .json({ message: 'Erro interno', error: error.message });
+      .json({ message: error.message });
   }
+};
+
+const createUser = async (req, res) => {
+  try {
+    const newUser = await UserService.createUser(req.body);
+    const token = generateToken(newUser.id);
+    return res.status(201).json({ token });
+  } catch (error) {
+    return res
+    .status(500)
+    .json({ message: error.message });
+}
 };
 
 module.exports = {
   login,
+  createUser,
 };
