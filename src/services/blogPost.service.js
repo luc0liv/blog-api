@@ -19,7 +19,22 @@ const getPosts = () =>
     ],
   });
 
+  const getPostById = (id) => BlogPost.findByPk(id, {
+    include: [
+      {
+        model: User.scope('withoutPassword'),
+        as: 'user',
+      },
+      { 
+        model: Category, 
+        as: 'categories', 
+        through: { attributes: [] },
+      },
+    ],
+  });
+  
 module.exports = {
   // createBlogPost,
   getPosts,
+  getPostById,
 };
